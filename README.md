@@ -37,7 +37,9 @@ Please read carefully the challenge and if you have any doubt or need extra info
 - You should **consider this code ready for production** as it was a PR to be reviewed by a colleague. Also, commit as if it were a real-world feature.
 - **Design, test, develop and document the code.** It should be a performant, clean, and well-structured solution.
 - You **shouldn't spend more than 5h** on the challenge.
-- Since it's frontend challenge, we expect the code based in JavaScript and React Native Library.
+- Since it's frontend challenge, we expect the code based in JavaScript or Typescript.
+- As it is a React Native position we expect to use react-native CLI or Expo.
+- We expect the demo to work minimum on iOS 17 and Android 14.
 - Your **experience level will be taken into consideration** when evaluating.
 
 When completed, send a zip with your README and code, including the `.git` folder to see the commit log, to your hiring contact.
