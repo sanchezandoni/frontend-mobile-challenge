@@ -12,7 +12,7 @@ This challenge is about implementing a simplified version of our mobile shopper 
 
 SeQura provides the shopper users an aplication where they can see the products they have bought and the instalments they have to pay. The app also allows the shopper to see the details of the product order.
 
-As part of our the product iteration process, the Product Designer from the team has made a wireframe and now is asking you to implement an application to display one screen with order list and another with the order details. The Product Designer is also very interested in analysing any shopper interaction with the app so the team can improve it in future iterations.
+As part of our product iteration process, the Product Designer from the team has made a wireframe and now is asking you to implement an application to display one screen with order list and another with the order details. The Product Designer is also very interested in analysing any shopper interaction with the app so the team can improve it in future iterations.
 
 We expect you to:
 
