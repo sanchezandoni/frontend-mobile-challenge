@@ -31,11 +31,12 @@ Please read carefully the challenge and if you have any doubt or need extra info
   1. Go to the folder `api` and run `npm install`.
   2. Run `npm start` to start the server.
 - Create a **README** explaining:
-  1. How to **set up and and run** your solution.
+  1. Detailed information about how to use the application. Assume a new member is joining the project and don't know anything about it.
   2. An explanation of your technical choices, tradeoffs, assumptions you took, etc.
   3. If you left things aside due to time constraints, explain why and how you would resolve or improve them.
 - You should **consider this code ready for production** as it was a PR to be reviewed by a colleague. Also, commit as if it were a real-world feature.
 - **Design, test, develop and document the code.** It should be a performant, clean, and well-structured solution.
+- We care a lot about testing, so pay special attention to your app tests.
 - You **shouldn't spend more than 5h** on the challenge.
 - Since it's frontend challenge, we expect the code based in JavaScript or Typescript.
 - As it is a React Native position we expect to use react-native CLI or Expo.
