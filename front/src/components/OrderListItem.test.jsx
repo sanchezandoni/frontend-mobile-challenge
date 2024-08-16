@@ -2,8 +2,7 @@ import {render, screen} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import OrderListItem from './OrderListItem'
 
-test('Muestra el título de la tienda', async () => {
-  const theOrder = {
+const theOrder = {
     "id": "1",
     "merchantImage": "https://res.cloudinary.com/caskchain/image/upload/v1717158058/Sequra/amazon.png",
     "merchantName": "Amazon",
@@ -15,7 +14,19 @@ test('Muestra el título de la tienda', async () => {
     "numberOfArticles": 5,
     "shippedArticles": 2
 }
-  render(<OrderListItem order={theOrder}/>)
 
+test('Muestra el título de la tienda', async () => {
+  render(<OrderListItem order={theOrder}/>)
   expect(screen.getByRole('heading')).toHaveTextContent('Amazon')
+})
+
+test("Muestra la fecha de compra", async()=>{
+	render(<OrderListItem order={theOrder}/>)
+	expect(screen.getByRole('time')).toHaveTextContent('1 oct 2021')
+})
+
+
+test("Muestra el número de artículos", async()=>{
+	render(<OrderListItem order={theOrder}/>)
+	expect(screen.getByText('5 artículos')).toBeInTheDocument()
 })

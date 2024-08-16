@@ -1,0 +1,20 @@
+@font-face {
+	font-family: "TestFoundersGrotesk";
+	src: url("TestFoundersGrotesk-Regular-BF66175e972ac1c.otf") format("opentype");
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "TestFoundersGrotesk";
+	src:
+		url("TestFoundersGrotesk-Semibold-BF66175e972c958.otf") format("opentype");
+	font-weight: bold;
+}
+
+/*
+  	url("TestFoundersGrotesk-Bold-BF66175e9700615.otf") format("opentype"),
+	url("TestFoundersGrotesk-Light-BF66175e9730f02.otf") format("opentype"),
+	url("TestFoundersGrotesk-Medium-BF66175e9723b7a.otf") format("opentype"),
+	url("TestFoundersGrotesk-Regular-BF66175e972ac1c.otf") format("opentype"),
+	url("TestFoundersGrotesk-Semibold-BF66175e972c958.otf") format("opentype");
+*/
