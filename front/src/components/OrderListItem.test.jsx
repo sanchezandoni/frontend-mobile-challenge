@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react'
+import {render, screen, within} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import OrderListItem from './OrderListItem'
 
@@ -21,12 +21,28 @@ test('Muestra el título de la tienda', async () => {
 })
 
 test("Muestra la fecha de compra", async()=>{
-	render(<OrderListItem order={theOrder}/>)
-	expect(screen.getByRole('time')).toHaveTextContent('1 oct 2021')
-})
+	const {container} = render(<OrderListItem order={theOrder}/>)
+	const header = container.querySelector("header")
 
+	expect( within(header).getByRole('time') ).toHaveTextContent('1 oct 2021')
+})
 
 test("Muestra el número de artículos", async()=>{
 	render(<OrderListItem order={theOrder}/>)
 	expect(screen.getByText('5 artículos')).toBeInTheDocument()
+})
+
+test("Muestra la fecha del próximo pago", async()=>{
+	const {container} = render(<OrderListItem order={theOrder}/>)
+	const main = container.querySelector("main")
+	
+	expect( within(main).getByRole('time') ).toHaveTextContent('1noviembre')
+})
+
+test("Muestra la cantidad del próximo pago", async()=>{
+	const {container} = render(<OrderListItem order={theOrder}/>)
+	const main = container.querySelector("main")
+	
+	expect(within(main).getByText('Cobro de:')).toBeInTheDocument()
+	expect(within(main).getByText('100,00 €')).toBeInTheDocument()
 })

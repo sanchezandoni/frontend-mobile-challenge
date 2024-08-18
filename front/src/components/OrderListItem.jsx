@@ -1,14 +1,17 @@
 import bagIcon from "../assets/bag.svg"
+import Precio from "./Precio"
 
-function OrderListItem({order}){
+function OrderListItem({ order }) {
 	const headerStyles = {
 		backgroundImage: `url('${order.merchantImage}')`
 	}
 
-	const date = new Date(order.date)
-	const dateTextValue = date.toLocaleDateString('es-ES',{
+	const orderDate = new Date(order.date)
+	const orderDateTextValue = orderDate.toLocaleDateString('es-ES', {
 		dateStyle: 'medium'
 	})
+
+	const nextDueDate = new Date(order.nextDueDate)
 
 	return (
 		<div className="order-list-item">
@@ -16,13 +19,23 @@ function OrderListItem({order}){
 				{/* <img src={order.merchantImage} /> */}
 				<div className="header-content">
 					<h2>{order.merchantName}</h2>
-					<time dateTime={dateTextValue}>{dateTextValue}</time>
+					<time dateTime={orderDateTextValue}>{orderDateTextValue}</time>
 					<span><img src={bagIcon} /> {order.numberOfArticles} artículos</span>
 				</div>
-				
-				<img className="merchant-logo" src={order.merchantLogo} alt={`Logotipo de ${order.merchantName}`}/>
+
+				<img className="merchant-logo" src={order.merchantLogo} alt={`Logotipo de ${order.merchantName}`} />
 			</header>
-			<main></main>
+			<main>
+				<div className="time-container">
+					<time dateTime={orderDateTextValue}>
+						<span className="date-number">{nextDueDate.getDay()}</span>
+						<span className="date-month">{nextDueDate.toLocaleString('es-ES', { month: 'long' })}</span>
+					</time></div>
+				<div className="cobro">
+					<span className="cobro-title">Cobro de:</span>
+					<span className="cobro-qty"><Precio precio={order.nextDueAmount}/></span>
+				</div>
+			</main>
 		</div>)
 }
 
