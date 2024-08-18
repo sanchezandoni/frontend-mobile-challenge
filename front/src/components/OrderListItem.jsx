@@ -1,4 +1,5 @@
 import bagIcon from "../assets/bag.svg"
+import checkIcon from "../assets/check.svg"
 import Precio from "./Precio"
 
 function OrderListItem({ order }) {
@@ -12,6 +13,8 @@ function OrderListItem({ order }) {
 	})
 
 	const nextDueDate = new Date(order.nextDueDate)
+	const statusCompleted = order.status === "completed"
+
 
 	return (
 		<div className="order-list-item">
@@ -25,7 +28,8 @@ function OrderListItem({ order }) {
 
 				<img className="merchant-logo" src={order.merchantLogo} alt={`Logotipo de ${order.merchantName}`} />
 			</header>
-			<main>
+
+			{!statusCompleted && (<main>
 				<div className="time-container">
 					<time dateTime={orderDateTextValue}>
 						<span className="date-number">{nextDueDate.getDay()}</span>
@@ -33,9 +37,22 @@ function OrderListItem({ order }) {
 					</time></div>
 				<div className="cobro">
 					<span className="cobro-title">Cobro de:</span>
-					<span className="cobro-qty"><Precio precio={order.nextDueAmount}/></span>
+					<span className="cobro-qty"><Precio precio={order.nextDueAmount} /></span>
+				</div>
+
+			</main>
+			)}
+			{statusCompleted && (<main>
+				<img src={checkIcon} alt="Icono de compra completada" />
+				<div className="compra-completada">
+					<span className="compra-completada-title">Compra completada</span>
+					<time className="compra-completada-date" dateTime={order.nextDueDate}>{(new Date(order.nextDueDate)).toLocaleDateString('es-ES', {
+						dateStyle: 'medium'
+					})}</time>
 				</div>
 			</main>
+
+			)}
 		</div>)
 }
 

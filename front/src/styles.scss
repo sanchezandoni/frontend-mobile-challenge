@@ -15,9 +15,9 @@ $colors-semantic-success-semantic-success-medium: #B6EEE5;
 	width: 375px;
 	font-family: "TestFoundersGrotesk";
 
-	h1{
+	h1 {
 		padding: 8px 24px;
-		margin:0;
+		margin: 0;
 	}
 
 	.order-list {
@@ -44,24 +44,25 @@ $colors-semantic-success-semantic-success-medium: #B6EEE5;
 				.header-content {
 					padding: 24px;
 
-					h2{
+					h2 {
 						margin-bottom: 0;
 					}
+
 					time {
 						margin-right: 1rem;
 					}
 				}
 
-			.merchant-logo {
-				$size: 48px;
-				width: $size;
-				height: $size;
-				border-radius: 50%;
-				background-color: #C4C4C4;
-				position: absolute;
-				bottom: -(calc($size/2));
-				left: 255px;
-			}
+				.merchant-logo {
+					$size: 48px;
+					width: $size;
+					height: $size;
+					border-radius: 50%;
+					background-color: #C4C4C4;
+					position: absolute;
+					bottom: -(calc($size/2));
+					left: 255px;
+				}
 			}
 
 			main {
@@ -90,29 +91,44 @@ $colors-semantic-success-semantic-success-medium: #B6EEE5;
 						align-items: center;
 						justify-content: center;
 
-						span{
+						span {
 							display: block;
 
-							&.date-number{
+							&.date-number {
 								font-size: 2rem;
 								// background-color: blue;
 							}
-							&.date-month{}
+
+							&.date-month {}
 						}
 					}
 
 				}
 
-				.cobro{
+				.cobro {
 					padding: 24px;
 
-					span{
+					span {
 						display: block;
 
-						&.cobro-qty{
+						&.cobro-qty {
 							font-size: 1.5em;
 							font-weight: bold;
 						}
+					}
+				}
+
+				.compra-completada {
+					padding: 24px;
+
+					.compra-completada-title {
+						display: block;
+					}
+
+					.compra-completada-date {
+						display: block;
+						font-size: 1.5em;
+						font-weight: bold;
 					}
 				}
 			}
