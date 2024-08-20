@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 
+import React from "react";
 import App from './App'
 
 const fakeRepository = {
@@ -55,15 +56,21 @@ test('Muestra el listado de encargos', async () => {
   expect(screen.getByRole('heading')).toHaveTextContent('Orders')
 })
 
+jest.mock("./pages/PurchaseDetail", () => {
+  const PurchaseDetail = ({ordersRepository,orderId}) => <div data-testid="PurchaseDetail">Detalles de la compra con id {orderId}</div>;
+  return PurchaseDetail
+});
 
 test('Al hacer click en un encargo del listado, muestra los detalles del encargo', async () => {
   const user = userEvent.setup()
 
-  const { container } = render(<App ordersRepository={fakeRepository} />)
+  const { getByTestId } = render(<App ordersRepository={fakeRepository} />)
   
   expect(await screen.findByText("Amazon")).toBeInTheDocument();
   const orderListItem = screen.getByText("Amazon")
   await user.click(orderListItem);
 
+  expect(getByTestId("PurchaseDetail")).toBeInTheDocument();
   expect(screen.getByText("Detalles de la compra con id 1")).toBeInTheDocument()
+  
 })
