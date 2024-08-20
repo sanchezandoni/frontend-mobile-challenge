@@ -9,10 +9,10 @@ function AllPurchases({ ordersRepository, orderSelectedHandler }) {
 		ordersRepository.getOrders().then(setFetchedOrders)
 	},[])
 
-	return (<>
+	return (<div className="all-purchases-page">
 		<h1>Orders</h1>
 		<OrderList orders={fetchedOrders} orderSelectedHandler={orderSelectedHandler}/>
-	</>)
+	</div>)
 }
 
 export default AllPurchases;

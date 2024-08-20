@@ -15,124 +15,310 @@ $colors-semantic-success-semantic-success-medium: #B6EEE5;
 	width: 375px;
 	font-family: "TestFoundersGrotesk";
 
-	h1 {
-		padding: 8px 24px;
-		margin: 0;
-	}
+	.all-purchases-page {
+		h1 {
+			padding: 8px 24px;
+			margin: 0;
+		}
 
-	.order-list {
-		width: 375px;
-		box-sizing: border-box;
-		padding: 0px 24px;
+		.order-list {
+			width: 100%;
+			box-sizing: border-box;
+			padding: 0px 24px;
 
-		.order-list-item {
-			position: relative;
-			width: 327px;
-			height: 292px;
-			border-radius: 24px;
-			box-shadow: 0px 1px 12px -6px #0000009C;
-			margin-bottom: 16px;
-			cursor: pointer;
-
-			header {
+			.order-list-item {
 				position: relative;
-				height: 148px;
-				border-radius: 24px 24px 0 0;
-				background-size: cover;
-				background-repeat: no-repeat;
-				color: #ffffff;
+				width: 327px;
+				height: 292px;
+				border-radius: 24px;
+				box-shadow: 0px 1px 12px -6px #0000009C;
+				margin-bottom: 16px;
+				cursor: pointer;
 
-				.header-content {
-					padding: 24px;
+				header {
+					position: relative;
+					height: 148px;
+					border-radius: 24px 24px 0 0;
+					background-size: cover;
+					background-repeat: no-repeat;
+					color: #ffffff;
 
-					h2 {
-						margin-bottom: 0;
+					.header-content {
+						padding: 24px;
+
+						h2 {
+							margin-bottom: 0;
+						}
+
+						time {
+							margin-right: 1rem;
+						}
 					}
 
-					time {
-						margin-right: 1rem;
-					}
-				}
-
-				.merchant-logo {
-					$size: 48px;
-					width: $size;
-					height: $size;
-					border-radius: 50%;
-					background-color: #C4C4C4;
-					position: absolute;
-					bottom: -(calc($size/2));
-					left: 255px;
-				}
-			}
-
-			main {
-				padding: 24px;
-				display: flex;
-
-				.time-container {
-					$size: 96px;
-					width: $size;
-					height: $size;
-					border-radius: 16px;
-					border: solid 4px #000000;
-					padding: 2px;
-					box-sizing: border-box;
-
-					time {
-						display: block;
-						box-sizing: border-box;
-						$size: 84px;
+					.merchant-logo {
+						$size: 48px;
 						width: $size;
 						height: $size;
-						border-radius: 11px;
-						background-color: $colors-semantic-success-semantic-success-medium;
-						display: flex;
-						flex-direction: column;
-						align-items: center;
-						justify-content: center;
+						border-radius: 50%;
+						background-color: #C4C4C4;
+						position: absolute;
+						bottom: -(calc($size/2));
+						left: 255px;
+					}
+				}
+
+				main {
+					padding: 24px;
+					display: flex;
+
+					.time-container {
+						$size: 96px;
+						width: $size;
+						height: $size;
+						border-radius: 16px;
+						border: solid 4px #000000;
+						padding: 2px;
+						box-sizing: border-box;
+
+						time {
+							display: block;
+							box-sizing: border-box;
+							$size: 84px;
+							width: $size;
+							height: $size;
+							border-radius: 11px;
+							background-color: $colors-semantic-success-semantic-success-medium;
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							justify-content: center;
+
+							span {
+								display: block;
+
+								&.date-number {
+									font-size: 2rem;
+									// background-color: blue;
+								}
+
+								&.date-month {}
+							}
+						}
+
+					}
+
+					.cobro {
+						padding: 24px;
 
 						span {
 							display: block;
 
-							&.date-number {
-								font-size: 2rem;
-								// background-color: blue;
+							&.cobro-qty {
+								font-size: 1.5em;
+								font-weight: bold;
 							}
-
-							&.date-month {}
 						}
 					}
 
-				}
+					.compra-completada {
+						padding: 24px;
 
-				.cobro {
-					padding: 24px;
+						.compra-completada-title {
+							display: block;
+						}
 
-					span {
-						display: block;
-
-						&.cobro-qty {
+						.compra-completada-date {
+							display: block;
 							font-size: 1.5em;
 							font-weight: bold;
 						}
 					}
 				}
+			}
+		}
+	}
 
-				.compra-completada {
-					padding: 24px;
+	.purchase-detail {
+		width: 100%;
 
-					.compra-completada-title {
-						display: block;
+		.purchase-detail-header {
+			position: relative;
+			height: 360px;
+			border-radius: 0;
+			background-size: cover;
+			background-repeat: no-repeat;
+			color: #ffffff;
+			padding: 40px 24px 0;
+			box-sizing: border-box;
+
+			.purchase-detail-header_back-button {
+				background: none;
+				border: none;
+				cursor: pointer;
+			}
+
+			.purchase-detail-header_content {
+				margin-top: 60px;
+
+				.purchase-detail-header_content_merchant-name {
+					margin: 0;
+				}
+
+				.purchase-detail-header_content_purchase-details {
+					margin-top: 24px;
+					background: #FFFFFFAB;
+					border-radius: 24px;
+					height: 40px;
+					padding: 8px;
+					box-sizing: border-box;
+					display: flex;
+					justify-content: space-evenly;
+					align-items: center;
+					color: #1C1C1C;
+					font-size: 12px;
+					font-weight: 400;
+
+					div {
+						display: flex;
+
+						img {
+							margin-right: 4px;
+						}
+					}
+				}
+			}
+
+			.purchase-detail-header_merchant-logo {
+				$size: 72px;
+				width: $size;
+				height: $size;
+				border-radius: 50%;
+				background-color: #C4C4C4;
+				position: absolute;
+				right: 24px;
+				top: 48px;
+			}
+		}
+
+		.purchase-detail_payment-details {
+			display: block;
+			width: 100%;
+			height: 393px;
+			border-radius: 32px 32px 0 0;
+			margin-top: -56px;
+			background-color: #ffffff;
+			box-shadow: 0px 0px 8px 0px #1C1C1C1F;
+			position: relative;
+			padding: 16px 24px 24px;
+			box-sizing: border-box;
+
+			.purchase-detail_payment-details_title {
+				font-size: 20px;
+				font-weight: 600;
+				margin-top: 0;
+			}
+
+			.purchase-detail_payment-details_content-pending{
+
+				.purchase-detail_payment-details_content-pending_top-content{
+					display: flex;
+					.time-container {
+						$size: 156px;
+						width: $size;
+						height: $size;
+						border-radius: 16px;
+						border: solid 4px #000000;
+						padding: 2px;
+						box-sizing: border-box;
+						margin-right: 24px;
+	
+						time {
+							display: block;
+							box-sizing: border-box;
+							$size: 144;
+							width: $size;
+							height: $size;
+							border-radius: 11px;
+							background-color: $colors-semantic-success-semantic-success-medium;
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							justify-content: center;
+	
+							span {
+								display: block;
+	
+								&.date-number {
+									font-size: 32px;
+									line-height: 48px;
+									// background-color: blue;
+								}
+	
+								&.date-month {
+									font-size: 16px;
+									line-height: 18.88px;
+								}
+							}
+						}
+	
 					}
 
-					.compra-completada-date {
-						display: block;
-						font-size: 1.5em;
-						font-weight: bold;
+					.purchase-detail_payment-details_content-pending_top-content_right{
+						font-size: 20px;
+						line-height: 25.6px;
+
+						.title{
+							font-weight: 600;
+							margin-bottom: 8px;
+						}
+					}
+				}
+
+				.total {
+					width: 100%;
+					text-align: center;
+					font-size: 24px;
+					line-height: 30px;
+					font-weight: 400;
+					margin: 24px 0;
+				}
+
+				.purchase-detail_payment-details_content-pending_pay-now-button {
+					background: #1C1C1C;
+					color: #ffffff;
+					border: none;
+					border-radius: 8px;
+					padding: 18px;
+					box-sizing: border-box;
+					width: 100%;
+					cursor: pointer;
+					font-size: 16px;
+				}
+			}
+
+			.purchase-detail_payment-details_content-completed {
+				margin-top: 48px;
+				display: flex;
+
+				img {
+					$size: 155px;
+					width: $size;
+					height: $size;
+					margin-right: 32px;
+				}
+
+				.purchase-detail_payment-details_content-completed_content {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+
+					.purchase-detail_payment-details_content-completed_content_title {
+						font-weight: 600;
+						margin-bottom: 8px;
 					}
 				}
 			}
 		}
+
 	}
 }

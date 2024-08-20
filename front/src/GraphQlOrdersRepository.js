@@ -27,11 +27,11 @@ class GraphQlOrdersRepository {
 				}`
 			})
 
-		}).then(res=>res.json())
-		.then(data=>data.data.orders)
+		}).then(res => res.json())
+			.then(data => data.data.orders)
 	}
 
-	getOrderById(orderId){
+	getOrderById(orderId) {
 		return fetch(this.baseAddress, {
 			method: 'POST',
 
@@ -51,12 +51,43 @@ class GraphQlOrdersRepository {
 						status
 						numberOfArticles
 						shippedArticles
+						reference
+						price
 					}
 				}`
 			})
 
-		}).then(res=>res.json())
-		.then(data=>data.data.orderById)
+		}).then(res => res.json())
+			.then(data => data.data.orderById)
+	}
+
+	payOrderById(orderId) {
+		return fetch(this.baseAddress, {
+			method: 'POST',
+
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				query: `mutation PayOrder{
+					payOrder(orderId: ${orderId}) {
+						id
+						merchantImage
+						merchantName
+						merchantLogo
+						date
+						nextDueAmount
+						nextDueDate
+						status
+						reference
+						price
+						numberOfArticles
+						shippedArticles
+					}
+				}`
+			})
+		}).then(res => res.json())
+		.then(data => data.data.payOrder)
 	}
 }
 
