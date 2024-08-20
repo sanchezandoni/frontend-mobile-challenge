@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import OrderList from "../components/OrderList";
 
-function AllPurchases({ ordersRepository }) {
+function AllPurchases({ ordersRepository, orderSelectedHandler }) {
 
 	const [fetchedOrders,setFetchedOrders] = useState([])
 
@@ -11,7 +11,7 @@ function AllPurchases({ ordersRepository }) {
 
 	return (<>
 		<h1>Orders</h1>
-		<OrderList orders={fetchedOrders}/>
+		<OrderList orders={fetchedOrders} orderSelectedHandler={orderSelectedHandler}/>
 	</>)
 }
 

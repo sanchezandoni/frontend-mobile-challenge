@@ -1,5 +1,7 @@
 import { render, screen, within } from '@testing-library/react'
 import '@testing-library/jest-dom'
+import userEvent from '@testing-library/user-event'
+
 import OrderListItem from './OrderListItem'
 
 const theDefaultOrder = {
@@ -58,4 +60,17 @@ test("Muestra correctamente los pedidos completados", async () => {
 	expect(within(main).getByAltText('Icono de compra completada')).toBeInTheDocument()
 	expect(within(main).getByText('Compra completada')).toBeInTheDocument()
 	expect(within(main).getByRole('time')).toHaveTextContent('1 nov 2021')
+})
+
+
+test("Ejecuta la función onOrderSelected al hacer click en él", async () => {
+	const handlerMock = jest.fn()
+	const user = userEvent.setup()
+
+	const { container } = render(<OrderListItem order={theDefaultOrder} onOrderSelected={handlerMock} />)
+	const orderListItem = container.querySelector(".order-list-item")
+
+	await user.click(orderListItem);
+
+	expect(handlerMock).toHaveBeenCalled()
 })

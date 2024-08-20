@@ -2,7 +2,7 @@ import bagIcon from "../assets/bag.svg"
 import checkIcon from "../assets/check.svg"
 import Precio from "./Precio"
 
-function OrderListItem({ order }) {
+function OrderListItem({ order, onOrderSelected }) {
 	const headerStyles = {
 		backgroundImage: `url('${order.merchantImage}')`
 	}
@@ -17,7 +17,7 @@ function OrderListItem({ order }) {
 
 
 	return (
-		<div className="order-list-item">
+		<div className="order-list-item" onClick={onOrderSelected}>
 			<header style={headerStyles}>
 				{/* <img src={order.merchantImage} /> */}
 				<div className="header-content">
