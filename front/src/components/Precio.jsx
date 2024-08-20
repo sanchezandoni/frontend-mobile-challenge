@@ -1,6 +1,8 @@
 function Precio({precio}){
-	const formatedPrize = parseFloat(precio).toFixed(2).split(".").join(",");
-	return <>{formatedPrize} €</>
+	const options = {minimumFractionDigits:2,maximumFractionDigits:2, style:"currency",currency:"EUR"}
+	const formatter = new Intl.NumberFormat("es-ES",options)
+	const formatedPrize = formatter.format(precio);
+	return <>{formatedPrize}</>
 }
 
 export default Precio
